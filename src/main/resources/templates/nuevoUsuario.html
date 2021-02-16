@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/header :: header"></div>
+	
+	<form>
+		<div class="form-row">
+		    <div class="form-group col-md-6">
+		    <label for="inputEmail4">Usuario</label>
+		    <input type="text" class="form-control" id="user">
+		    </div>
+			<div class="form-group col-md-6">
+		    <label for="inputPassword4">Contrasena</label>
+		    <input type="password" class="form-control" id="contraseña">
+			</div>
+		</div>
+		<div class="form-row">
+		    <div class="form-group col-md-6">
+		    <label for="inputName4">Nombre</label>
+		    <input type="text" class="form-control" id="nombre">
+		    </div>
+			<div class="form-group col-md-6">
+		    <label for="inputLastName4">Apellido</label>
+		    <input type="text" class="form-control" id="apellido">
+			</div>
+		</div>
+		<div class="form-row">
+		    <div class="form-group col-md-6">
+		    	<label for="inputCity">DNI</label>
+		    	<input type="number" class="form-control" id="dni">
+		    </div>
+			<div class="form-row">
+				<div class="col-form-label col-sm-6 pt-0">Tipo</div>
+				
+				<div class="col-sm-6">
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="tipodeusuario"
+							id="Cliente" value="Cliente"> <label
+							class="form-check-label" for="Cliente">Cliente</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="tipodeusuario"
+							id="Administrador" value="Administrador"> <label
+							class="form-check-label" for="Administrador">Administrador</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-lg-12 text-center">
+				<a class="btn btn-secondary" th:ref="@{'nuevoUsuario/cancelar'}">Cancelar</a>
+				<button type="button" class="btn btn-light btn-outline-success" data-toggle="modal" data-target="#modalAgregar">Guardar Usuario</button>
+			</div>
+		</div>
+	</form>
+
+	<div th:insert="layout/footer :: footer"></div>
+	
+</body>
+</html>

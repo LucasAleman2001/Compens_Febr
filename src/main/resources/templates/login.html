@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/header :: header"></div>
+	
+	<form>
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Usuario</label>
+	    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Contrasena</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Ingresar</button>
+	  <button type="submit" class="btn btn-primary" href="nuevoUsuario">Crear Usuario</button>
+	</form>
+
+	<div th:insert="layout/footer :: footer"></div>
+
+</body>
+</html>
