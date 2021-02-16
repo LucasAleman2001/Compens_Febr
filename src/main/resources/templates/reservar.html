@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/header :: header"></div>
+		<h4>Lista de Habitaciones</h4>
+		<div class="list-group">
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Primavera</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Verano</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Otono</a>
+		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Invierno</a>
+		</div>
+	<div th:insert="layout/footer :: footer"></div>
+	
+</body>
+</html>

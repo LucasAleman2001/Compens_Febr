@@ -6,12 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
+@Table
 public class Habitacion implements Serializable{
 	
 	/**
@@ -35,15 +37,13 @@ public class Habitacion implements Serializable{
 	private String disponibilidad;
 	@Column
 	private String tipo;
-	@Column
-	private String desayuno;
 	
 	public Habitacion() {
 		
 	}
 
 	public Habitacion(Long idHab, String nombreHab, int numeroHab, String detallesHab, double costo,
-			String disponibilidad, String tipo, String desayuno) {
+			String disponibilidad, String tipo) {
 		super();
 		this.idHab = idHab;
 		this.nombreHab = nombreHab;
@@ -52,7 +52,6 @@ public class Habitacion implements Serializable{
 		this.costo = costo;
 		this.disponibilidad = disponibilidad;
 		this.tipo = tipo;
-		this.desayuno = desayuno;
 	}
 
 	public Long getIdHab() {
@@ -109,14 +108,6 @@ public class Habitacion implements Serializable{
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
-	}
-
-	public String getDesayuno() {
-		return desayuno;
-	}
-
-	public void setDesayuno(String desayuno) {
-		this.desayuno = desayuno;
 	}
 	
 }

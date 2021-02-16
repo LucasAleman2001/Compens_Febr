@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/header :: header"></div>
+	
+	<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Apellido</th>
+		      <th scope="col">Usuario</th>
+		      <th scope="col">DNI</th>
+		      <th scope="col">Genero</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">1</th>
+		      <td th:text="${nombre}">Nombre</td>
+		      <td>Otto</td>
+		      <td>@mdo</td>
+		      <td>@mdo</td>
+		      <td>@mdo</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">2</th>
+		      <td>Jacob</td>
+		      <td>Thornton</td>
+		      <td>@fat</td>
+		      <td>@mdo</td>
+		      <td>@mdo</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">3</th>
+		      <td>Larry</td>
+		      <td>the Bird</td>
+		      <td>@twitter</td>
+		      <td>@mdo</td>
+		      <td>@mdo</td>
+		    </tr>
+		  </tbody>
+		</table>
+		
+		<div th:insert="layout/footer :: footer"></div>
+		
+</body>
+</html>
