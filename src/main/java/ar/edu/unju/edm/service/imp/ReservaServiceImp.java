@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.model.Reserva;
+import ar.edu.unju.edm.model.Usuario;
 import ar.edu.unju.edm.repository.IReservaDAO;
 import ar.edu.unju.edm.service.IReservaService;
 
@@ -40,8 +41,8 @@ public class ReservaServiceImp implements IReservaService {
 	}
 
 	@Override
-	public Reserva buscarReservaPorUser() {
-		return iReservaDAO.findByUser();
+	public Reserva buscarReservaPorUsuario(Usuario usuario) {
+		return iReservaDAO.findByUsuario(usuario);
 	}
 
 }

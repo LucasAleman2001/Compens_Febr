@@ -2,7 +2,6 @@ package ar.edu.unju.edm.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,21 +27,17 @@ public class Reserva implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idReserva;
 	
-	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUsuario")
-	@Column
 	private Usuario usuario;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idHabitacion")
-	@Column
 	private Habitacion habitacion;
 	
-	@Column
 	private boolean desayuno;
 	
 	public Reserva() {
