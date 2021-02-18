@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	<br>
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/headerCliente :: headerCliente"></div>
+	<br>
+	    <div class="container">
+	    	<table class="table">
+				<tr>
+					<th>Nombre de Hab</th>
+					<th>Numero de Hab</th>
+					<th>Tipo</th>
+					<th>Descripcion</th>
+					<th>Monto Pagado</th>
+					<th>Fecha</th>
+					<th>Desayuno</th>
+				</tr>
+				<tr>
+					<td>Primavera</td>
+					<td>12</td>
+					<td>simple</td>
+					<td>muchas cosas</td>
+					<td>$4555</td>
+					<td>5/6/2021</td>
+					<td>Si</td>
+				</tr>
+			</table>
+	    </div>
+	    <form action="Admin" class="form-group">
+				<input type="submit" class="btn btn-light btn-outline-success" value="Volver">
+		</form>
+		
+	<div th:insert="layout/footer :: footer"></div>
+		
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	<br>
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/header :: header"></div>
+	
+	<div class="form-group">
+		
+		<form method="post" class="form-group" id="formBuscarUsuario"> <br>
+			<label for="diaFecha">Dia</label>
+			<input id="diaFecha" type="number" class="form-control">
+			<label for="mesFecha">Mes</label>
+			<input id="mesFecha" type="number" class="form-control">
+			<label for="añoFecha">Ano</label>
+			<input id="añoFecha" type="number" class="form-control"> <br>
+			<label></label><input type="submit" class="btn-light btn-outline-success" value="Buscar">
+		</form>
+		<form action="Admin" class="form-group">
+				<input type="submit" class="btn-light btn-outline-success" value="Volver">
+		</form>
+	</div>
+	
+	<div th:insert="layout/footer :: footer"></div>
+	
+</body>
+</html>

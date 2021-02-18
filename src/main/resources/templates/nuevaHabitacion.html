@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	<br>
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/header :: header"></div>
+	<br>
+	<form>
+		<div class="form-row">
+		    <div class="form-group col-md-6">
+		    <label for="inputEmail4">Nombre de la Habitacion</label>
+		    <input type="text" class="form-control" id="nombreHab">
+		    </div>
+			<div class="form-group col-md-6">
+		    <label for="inputEmail4">Numero de la Habitacion</label>
+		    <input type="number" class="form-control" id="numeroHab">
+		    </div>
+		</div>
+		<div class="form-row">
+		    <div class="form-group col-md-12">
+		    <label for="inputName4">Detalles</label>
+		    <input type="text" class="form-control" id="detallesHab">
+		    </div>
+		</div>
+		<div class="form-row">
+		    <div class="form-group col-md-6">
+		    	<label for="inputCity">Costo</label>
+		    	<input type="number" class="form-control" id="costo">
+		    </div>
+			<div class="form-row">
+				<div class="col-form-label col-sm-6 pt-0">Tipo</div>
+				<div class="col-sm-6">
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="tipoHab"
+							id="Simple" value="Cliente"> <label
+							class="form-check-label" for="Simple">Simple</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="tipoHab"
+							id="Doble" value="Administrador"> <label
+							class="form-check-label" for="Doble">Doble</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-lg-12 text-center">
+				<a class="btn btn-secondary" th:ref="@{'nuevoUsuario/cancelar'}">Cancelar</a>
+				<button type="button" class="btn btn-light btn-outline-success" data-toggle="modal" data-target="#modalAgregar">Guardar Habitacion</button>
+			</div>
+		</div>
+	</form>
+
+	<div th:insert="layout/footer :: footer"></div>
+	
+</body>
+</html>
