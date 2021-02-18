@@ -22,14 +22,14 @@ public class UsuarioController {
 	@GetMapping("/agregarUsuario")
 	public String agregarUsuario(Model model) {
 		model.addAttribute("unUsuario", usuario);
-		return "nuevoUsuario";
+		return "guardarUsuario";
 	}
 	
 	@PostMapping("/guardarUsuario")
 	public String guardarUsuario(@ModelAttribute Usuario usuario, Model model) {
 		usuarioService.guardarUsuario(usuario);
 		model.addAttribute("unUsuario", usuario);
-		return "redirect:/usuario";
+		return "reservar";
 	}
 	
 	@GetMapping("/borrarUsuario/{id}")
@@ -41,5 +41,10 @@ public class UsuarioController {
 		}
 		return "redirect:/usuario";
 	}
+	
+	@GetMapping("/nuevoUsuario")
+	public String nuevoUsuario(Model model) {
+	return "nuevoUsuario";
+	}	
 	
 }

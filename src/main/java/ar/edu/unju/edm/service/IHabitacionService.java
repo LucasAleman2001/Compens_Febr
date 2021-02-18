@@ -11,6 +11,6 @@ public interface IHabitacionService {
 	public void guardarHabitacion(Habitacion habitacion);
 	public List<Habitacion> listarHabitaciones();
 	public Optional<Habitacion> buscarHabitacion();
-	public Habitacion buscarPorDisponibilidad(String disponibilidad);
+	public Habitacion buscarPorDisponibilidad(boolean disponibilidad);
 
 }

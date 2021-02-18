@@ -14,7 +14,7 @@ public class Main {
 	@Autowired
 	IUsuarioService usuarioService;
 	
-	@RequestMapping("/login")
+	@RequestMapping({"/","/login","/home"})
 	public String login(Model model) {
 		return "login";
 	}
@@ -24,13 +24,40 @@ public class Main {
 		return "reservar";
 	}
 	
-	@GetMapping("/nuevoUsuario")
-		public String nuevoUsuario(Model model) {
-		return "nuevoUsuario";
+	@GetMapping("/listaReservas")
+	public String listaReservas(Model model) {
+	return "listaReservas";
 	}
-	@GetMapping("/listaUsuario")
-		public String listaUsuario(Model model) {
-		return "listaUsuario";
+	
+	@GetMapping("/nuevaHabitacion")
+	public String nuevaHabitacion(Model model) {
+	return "nuevaHabitacion";
+	}	
+	
+	@GetMapping("/consultaUsuario")
+	public String consultaUsuario(Model model) {
+	return "consultaUsuario";
 	}
+	
+	@GetMapping("/consultaFecha")
+	public String consultaFecha(Model model) {
+	return "consultaFecha";
+	}	
+	
+	@GetMapping("/consultaReserva")
+	public String consultaReserva(Model model) {
+	return "consultaReserva";
+	}	
+	
+	@GetMapping("/fechaEncontrada")
+	public String fechaEncontrada(Model model) {
+	return "fechaEncontrada";
+	}	
+	
+	@GetMapping("/usuarioEncontrado")
+	public String usuarioEncontrado(Model model) {
+	return "usuarioEncontrado";
+	}	
+	
 	
 }

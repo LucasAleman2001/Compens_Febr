@@ -8,7 +8,7 @@
 </head>
 
 <body class="container">
-	
+	<br>
 	<header>
 		<div class="cabeza">
     		<h1>Hotel Dovago</h1>
@@ -16,24 +16,22 @@
 	</header>
 	
 	<div th:insert="layout/header :: header"></div>
-	
+	<br>
 	<table class="table">
 		  <thead>
 		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">Nombre</th>
-		      <th scope="col">Apellido</th>
+		      <th scope="col">Reserva</th>
 		      <th scope="col">Usuario</th>
-		      <th scope="col">DNI</th>
-		      <th scope="col">Genero</th>
+		      <th scope="col">Habitacion</th>
+		      <th scope="col">Fecha</th>
+		      <th scope="col">Desayuno</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		    <tr>
 		      <th scope="row">1</th>
-		      <td th:text="${nombre}">Nombre</td>
+		      <td th:text="${nombre}"></td>
 		      <td>Otto</td>
-		      <td>@mdo</td>
 		      <td>@mdo</td>
 		      <td>@mdo</td>
 		    </tr>
@@ -43,14 +41,12 @@
 		      <td>Thornton</td>
 		      <td>@fat</td>
 		      <td>@mdo</td>
-		      <td>@mdo</td>
 		    </tr>
 		    <tr>
 		      <th scope="row">3</th>
 		      <td>Larry</td>
 		      <td>the Bird</td>
 		      <td>@twitter</td>
-		      <td>@mdo</td>
 		      <td>@mdo</td>
 		    </tr>
 		  </tbody>

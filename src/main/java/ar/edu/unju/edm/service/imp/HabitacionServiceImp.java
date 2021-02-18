@@ -33,7 +33,7 @@ public class HabitacionServiceImp implements IHabitacionService {
 	}
 
 	@Override
-	public Habitacion buscarPorDisponibilidad(String disponibilidad) {
+	public Habitacion buscarPorDisponibilidad(boolean disponibilidad) {
 		return iHabitacionDAO.findByDisponibilidad(disponibilidad);
 	}
 

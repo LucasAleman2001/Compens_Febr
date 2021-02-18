@@ -8,21 +8,86 @@
 </head>
 
 <body class="container">
-	
+	<br>
 	<header>
 		<div class="cabeza">
     		<h1>Hotel Dovago</h1>
   		</div>
 	</header>
 	
-	<div th:insert="layout/header :: header"></div>
-		<h4>Lista de Habitaciones</h4>
-		<div class="list-group">
-		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Primavera</a>
-		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Verano</a>
-		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Otono</a>
-		  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Invierno</a>
-		</div>
+	<div th:insert="layout/headerCliente :: headerCliente"></div>
+	<br>
+		<h3>Lista de Habitaciones</h3><br>
+			<div>
+				<table class="table">
+				    <tr>
+				      <th scope="col">Imagen ilustrativa</th>
+				      <th scope="col">Nombre de Hab</th>
+				      <th scope="col">Numero de Hab</th>
+				      <th scope="col">Descripcion</th>
+				      <th scope="col">Disponibilidad</th>
+				      <th scope="col">Precio</th>
+				    </tr>
+					<tr>
+						<td><img src="../static/img/primavera.jpg" class="imagenHab"></td>
+						<td>Primavera</td>
+						<td>1 </td>
+						<td>Ideal para pasar una noche primaveral</td>
+						<td>Si</td>
+						<td>$3400</td>
+					</tr>
+					<tr>
+						<td><img src="../static/img/verano.jpg" class="imagenHab"></td>
+						<td>Verano</td>
+						<td>2 </td>
+						<td>Ideal para pasar una noche veraniega</td>
+						<td>Si</td>
+						<td>$2400</td>
+					</tr>
+					<tr>
+						<td><img src="../static/img/invierno.jpg" class="imagenHab"></td>
+						<td>Invierno</td>
+						<td>3 </td>
+						<td>Ideal para pasar una noche invernal</td>
+						<td>Si</td>
+						<td>$3600</td>
+					</tr>
+					<tr>
+						<td><img src="../static/img/otono.jpg" class="imagenHab"></td>
+						<td>Otono</td>
+						<td>4 </td>
+						<td>Ideal para pasar una noche de otono</td>
+						<td>Si</td>
+						<td>$2600</td>
+					</tr>
+				</table>
+				<br>
+				
+				<form>
+					<div class="form-row">
+			    		<div class="form-group col-md-4">
+			    			<label for="">Que habitacion desea?</label><br>
+							<select name="eleccion">
+							  <option value="primavera">Primavera</option>
+							  <option value="verano">Verano</option>
+							  <option value="invierno">Invierno</option>
+							  <option value="otono">Otono</option>
+							</select>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="">Tipo:</label><br>
+							<input type="radio" name="boton" value="1">Simple<br>
+							<input type="radio" name="boton" value="2">Doble<br>							
+						</div>
+						<div class="form-group col-md-4">
+							<label for="">Fecha</label><br>
+							<input type="date" name="fecha">
+						</div>
+					</div>
+				</form>
+				<br><br><br>
+			</div>
+						
 	<div th:insert="layout/footer :: footer"></div>
 	
 </body>
