@@ -38,7 +38,7 @@ public class UsuarioServiceImp implements IUsuarioService {
 	}
 
 	@Override
-	public Usuario buscarUsuarioPorUser() {
+	public Optional<Usuario> buscarUsuarioPorUser() {
 		return iUsuarioDAO.findByUser(usuario.getUser());
 	}
 

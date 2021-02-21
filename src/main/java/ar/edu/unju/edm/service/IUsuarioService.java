@@ -12,6 +12,6 @@ public interface IUsuarioService {
 	public List<Usuario> listarUsuarios();
 	public Optional<Usuario> buscarUsuario(Long idUsuario);
 	public void eliminarUsuario(Long idUsuario);
-	public Usuario buscarUsuarioPorUser();
+	public Optional<Usuario> buscarUsuarioPorUser();
 	
 }
