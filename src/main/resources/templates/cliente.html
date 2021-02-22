@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleof.org">
 <head>
 <link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
 <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
 <meta charset="ISO-8859-1">
 <title>Hotel Dovago</title>
 </head>
-
 <body class="container">
+
 	<br>
 	<header>
 		<div class="cabeza">
@@ -15,20 +15,16 @@
   		</div>
 	</header>
 	
-	<div th:insert="layout/header :: header"></div>
-	
+	<div th:insert="layout/headerCliente :: headerCliente"></div>
+	<br>
+
 	<div class="form-group">
-		
-		<form th:object="${fecha}" th:action="${consultaFecha}" method="post" class="form-group" id="consultaFec"> <br>
-			<label for="fecha">Fecha a buscar</label>
-			<input id="fecha" type="datetime" class="form-control">
+		<form action="reservar" class="form-group">
+			<input type="submit" value="Reservar habitacion">
 		</form>
-		
-		<form action="Admin">
-			<label></label><input id="enviar" type="submit" value="Buscar">
-			<input type="submit" value="Volver">
+		<form action="login" class="form-group" id="formCerrarSesion">
+			<input type="submit" value="Cerrar Sesion">
 		</form>
-		
 	</div>
 	
 	<div th:insert="layout/footer :: footer"></div>

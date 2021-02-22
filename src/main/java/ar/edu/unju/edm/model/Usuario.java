@@ -39,12 +39,22 @@ public class Usuario implements Serializable{
 	private String tipo;
 	
 	public Usuario() {
-		
+		super();
 	}
 
 	public Usuario(Long idUsuario, int dni, String user, String password, String nombre, String apellido, String tipo) {
 		super();
 		this.idUsuario = idUsuario;
+		this.dni = dni;
+		this.user = user;
+		this.password = password;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.tipo = tipo;
+	}
+
+	public Usuario(int dni, String user, String password, String nombre, String apellido, String tipo) {
+		super();
 		this.dni = dni;
 		this.user = user;
 		this.password = password;

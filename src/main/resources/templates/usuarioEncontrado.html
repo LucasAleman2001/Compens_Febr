@@ -20,23 +20,24 @@
 	    <div class="container">
 	    	<table class="table">
 				<tr>
-					<th>Codigo de Reserva</th>
+					<th>Id de Reserva</th>
 					<th>Usuario</th>
 					<th>Habitacion</th>
 					<th>Fecha</th>
 					<th>Desayuno</th>
 				</tr>
-				<tr>
-					<td>id1</td>
-					<td>leon</td>
-					<td>Invierno</td>
-					<td>4/5/2021</td>
-					<td>si</td>
+				<tr th:each="reserva : ${reservas}">
+					<td th:text="${reserva.id}"></td>
+					<td th:text="${reserva.user}"></td>
+					<td th:text="${reserva.nombreHab}"></td>
+					<td th:text="${reserva.fecha}"></td>
+					<td th:text="${reserva.desayuno}"></td>
 				</tr>
 			</table>
 	    </div>
-	    <form action="Admin" class="form-group">
-				<input type="submit" class="btn btn-light btn-outline-success" value="Volver">
+	    
+	    <form action="Admin">
+			<input type="submit" value="Volver">
 		</form>
 		
 	<div th:insert="layout/footer :: footer"></div>

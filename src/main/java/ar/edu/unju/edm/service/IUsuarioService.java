@@ -10,8 +10,9 @@ import ar.edu.unju.edm.model.Usuario;
 public interface IUsuarioService {
 	public void guardarUsuario(Usuario usuario);
 	public List<Usuario> listarUsuarios();
-	public Optional<Usuario> buscarUsuario(Long idUsuario);
+	public Usuario buscarUsuario(Long idUsuario);
 	public void eliminarUsuario(Long idUsuario);
 	public Optional<Usuario> buscarUsuarioPorUser();
+	public void actualizarUsuario();
 	
 }

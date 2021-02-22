@@ -12,9 +12,11 @@ import ar.edu.unju.edm.model.Usuario;
 public interface IReservaService {
 	
 	public Reserva guardarReserva (Reserva reserva);
+	public void reservarHabitacion(Reserva reserva);
 	public List<Reserva>listarReservas();
 	public void eliminarReserva (Long reserva);
 	public Optional<Reserva> buscarReservaPorFecha(LocalDate fecha);
 	public Reserva buscarReservaPorUsuario(Usuario usuario);
+	public void modificarReserva();
 
 }

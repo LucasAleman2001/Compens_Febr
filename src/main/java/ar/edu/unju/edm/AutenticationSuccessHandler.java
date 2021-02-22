@@ -40,6 +40,7 @@ public class AutenticationSuccessHandler implements AuthenticationSuccessHandler
 			redirectStrategy.sendRedirect(request, response, "/Cliente");
 		}else {
 			throw new IllegalStateException();
-		}	
+		}
+		
 	}
 }

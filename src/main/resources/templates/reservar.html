@@ -21,72 +21,68 @@
 			<div>
 				<table class="table">
 				    <tr>
-				      <th scope="col">Imagen ilustrativa</th>
-				      <th scope="col">Nombre de Hab</th>
-				      <th scope="col">Numero de Hab</th>
-				      <th scope="col">Descripcion</th>
+				      <th scope="col">Id de Habitacion</th>
+				      <th scope="col">Nombre de Habitacion</th>
+				      <th scope="col">Detalles</th>
 				      <th scope="col">Disponibilidad</th>
 				      <th scope="col">Precio</th>
 				    </tr>
-					<tr>
-						<td><img src="https://casaydiseno.com/wp-content/uploads/2018/02/como-decorar-una-habitacion-primavera-resized.jpg" class="imagenHab"></td>
-						<td>Primavera</td>
-						<td>1 </td>
-						<td>Ideal para pasar una noche primaveral</td>
-						<td>Si</td>
-						<td>$3400</td>
+					<tr th:each="reserva : ${reservas}">
+						<td th:text="${reserva.idHab}"></td>
+						<td th:text="${reserva.nombreHab}"></td>
+						<td th:text="${reserva.detalles}"></td>
+						<td th:text="${reserva.disponibilidad}"></td>
+						<td th:text="${reserva.precio}"></td>
 					</tr>
-					<tr>
-						<td><img src="https://www.primeriti.es/blog/wp-content/uploads/2018/06/Paduana_COMPLETA-650x400.jpg" class="imagenHab"></td>
-						<td>Verano</td>
-						<td>2 </td>
-						<td>Ideal para pasar una noche veraniega</td>
-						<td>Si</td>
-						<td>$2400</td>
+					<tr th:each="reserva : ${reservas}">
+						<td th:text="${reserva.idHab}"></td>
+						<td th:text="${reserva.nombreHab}"></td>
+						<td th:text="${reserva.detalles}"></td>
+						<td th:text="${reserva.disponibilidad}"></td>
+						<td th:text="${reserva.precio}"></td>
 					</tr>
-					<tr>
-						<td><img src="https://casaydiseno.com/wp-content/uploads/2016/10/estuopenda_habitacion-deco.invierno.jpg" class="imagenHab"></td>
-						<td>Invierno</td>
-						<td>3 </td>
-						<td>Ideal para pasar una noche invernal</td>
-						<td>Si</td>
-						<td>$3600</td>
+					<tr th:each="reserva : ${reservas}">
+						<td th:text="${reserva.idHab}"></td>
+						<td th:text="${reserva.nombreHab}"></td>
+						<td th:text="${reserva.detalles}"></td>
+						<td th:text="${reserva.disponibilidad}"></td>
+						<td th:text="${reserva.precio}"></td>
 					</tr>
-					<tr>
-						<td><img src="https://i.pinimg.com/originals/57/27/ee/5727ee11f73a417efc85a8af8854d8d0.jpg" class="imagenHab"></td>
-						<td>Otono</td>
-						<td>4 </td>
-						<td>Ideal para pasar una noche de otono</td>
-						<td>Si</td>
-						<td>$2600</td>
+					<tr th:each="reserva : ${reservas}">
+						<td th:text="${reserva.idHab}"></td>
+						<td th:text="${reserva.nombreHab}"></td>
+						<td th:text="${reserva.detalles}"></td>
+						<td th:text="${reserva.disponibilidad}"></td>
+						<td th:text="${reserva.precio}"></td>
 					</tr>
 				</table>
 				<br>
 				
-				<form>
+				<form id="nuevaReserva" th:object="${nuevaReser}" th:action="${reservar}" method="post">
 					<div class="form-row">
 			    		<div class="form-group col-md-4">
-			    			<label for="">Que habitacion desea?</label><br>
-							<select name="eleccion">
-							  <option value="primavera">Primavera</option>
-							  <option value="verano">Verano</option>
-							  <option value="invierno">Invierno</option>
-							  <option value="otono">Otono</option>
-							</select>
+			    			<div class="form-group" >
+								<label for="idHab">Id de habitacion a elegir</label>
+								<input type="number" class="form-control" id="idHab" th:field="*{idHab}"></input>
+							</div>
+							<div class="form-group">
+								<label for="desayuno">Desayuno</label>
+								<input type="text" class="form-control" id="desayuno" placeholder="Si o No" th:field="*{desayuno}"></input>
+							</div>
 						</div>
 						<div class="form-group col-md-4">
-							<label for="">Tipo:</label><br>
-							<input type="radio" name="boton" value="1">Simple<br>
-							<input type="radio" name="boton" value="2">Doble<br>							
-						</div>
-						<div class="form-group col-md-4">
-							<label for="">Fecha</label><br>
-							<input type="date" name="fecha">
+							<label for="fecha">Fecha</label><br>
+							<input type="date" name="fecha" id="fecha" th:field="*{fecha}">
 						</div>
 					</div>
 				</form>
 				<br><br><br>
 			</div>
+			
+			<form action="Cliente">
+			<button type="submit" value="Reservar"></button>
+			<input type="submit" value="Volver">
+		</form>
 						
 	<div th:insert="layout/footer :: footer"></div>
 	

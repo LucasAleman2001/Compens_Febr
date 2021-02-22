@@ -17,49 +17,43 @@
 	
 	<div th:insert="layout/header :: header"></div>
 	<br>
-	<form>
+	<form id="nuevaHab" th:object="${nuevaHab}" th:action="${nuevaHabitacion}" method="post">
 		<div class="form-row">
-		    <div class="form-group col-md-6">
-		    <label for="inputEmail4">Nombre de la Habitacion</label>
-		    <input type="text" class="form-control" id="nombreHab">
+			<div class="form-group col-md-4">
+		    <label for="idHab">Id de Habitacion</label>
+		    <input type="number" class="form-control" id="idHab" th:field="*{idHab}">
 		    </div>
-			<div class="form-group col-md-6">
-		    <label for="inputEmail4">Numero de la Habitacion</label>
-		    <input type="number" class="form-control" id="numeroHab">
+		    <div class="form-group col-md-4">
+		    <label for="nombreHab">Nombre de la Habitacion</label>
+		    <input type="text" class="form-control" id="nombreHab" th:field="*{nombreHab}">
+		    </div>
+			<div class="form-group col-md-4">
+		    <label for="numeroHab">Numero de la Habitacion</label>
+		    <input type="number" class="form-control" id="numeroHab" th:field="*{numeroHab}">
 		    </div>
 		</div>
 		<div class="form-row">
 		    <div class="form-group col-md-12">
-		    <label for="inputName4">Detalles</label>
-		    <input type="text" class="form-control" id="detallesHab">
+		    <label for="detalles">Detalles</label>
+		    <input type="text" class="form-control" id="detallesHab" th:field="*{detallesHab}">
 		    </div>
 		</div>
 		<div class="form-row">
 		    <div class="form-group col-md-6">
-		    	<label for="inputCity">Costo</label>
-		    	<input type="number" class="form-control" id="costo">
+		    	<label for="costo">Costo $</label>
+		    	<p>$</p><input type="number" class="form-control" id="costo" th:field="*{costo}">
 		    </div>
-			<div class="form-row">
-				<div class="col-form-label col-sm-6 pt-0">Tipo</div>
-				<div class="col-sm-6">
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="tipoHab"
-							id="Simple" value="Cliente"> <label
-							class="form-check-label" for="Simple">Simple</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="tipoHab"
-							id="Doble" value="Administrador"> <label
-							class="form-check-label" for="Doble">Doble</label>
-					</div>
-				</div>
-			</div>
+			<div class="form-group col-md-6">
+		    	<label for="tipoHab">Tipo</label>
+		    	<input type="text" class="form-control" id="tipoHab" placeholder="Simple o Doble" th:field="*{tipoHab}">
+		    </div>
 		</div>
-		<div class="form-group row">
-			<div class="col-lg-12 text-center">
-				<a class="btn btn-secondary" th:ref="@{'nuevoUsuario/cancelar'}">Cancelar</a>
-				<button type="button" class="btn btn-light btn-outline-success" data-toggle="modal" data-target="#modalAgregar">Guardar Habitacion</button>
-			</div>
+	</form>
+	
+	<form action="Admin">
+		<input type="submit" value="Volver">
+		<div>
+			<button type="submit" value="Agregar">Agregar</button>
 		</div>
 	</form>
 

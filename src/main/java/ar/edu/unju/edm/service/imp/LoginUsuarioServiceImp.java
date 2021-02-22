@@ -28,7 +28,7 @@ public class LoginUsuarioServiceImp implements UserDetailsService {
 		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioEncontrado.getTipo());
 		tipos.add(grantedAuthority);
 		UserDetails usuario = (UserDetails) new User(username,usuarioEncontrado.getPassword(),tipos);
-		System.out.println("USUARIO:  "+usuarioEncontrado.getUser()+"CONTRASEÑA:  "+usuarioEncontrado.getPassword()+"  TIPO:  "+usuarioEncontrado.getTipo());
+		System.out.println("Usuario:  "+usuarioEncontrado.getUser()+"Contrasena:  "+usuarioEncontrado.getPassword()+"  Tipo:  "+usuarioEncontrado.getTipo());
 		return usuario;
 	}
 

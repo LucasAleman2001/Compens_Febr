@@ -3,6 +3,7 @@ package ar.edu.unju.edm.service.imp;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ar.edu.unju.edm.model.Usuario;
@@ -16,9 +17,13 @@ public class UsuarioServiceImp implements IUsuarioService {
 	IUsuarioDAO iUsuarioDAO;
 	@Autowired
 	Usuario usuario;
-
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	@Override
 	public void guardarUsuario(Usuario usuario) {
+		String pass = usuario.getPassword();
+		usuario.setPassword(bCryptPasswordEncoder.encode(pass));
 		iUsuarioDAO.save(usuario);
 	}
 	
@@ -28,8 +33,8 @@ public class UsuarioServiceImp implements IUsuarioService {
 	}
 
 	@Override
-	public Optional<Usuario> buscarUsuario(Long idUsuario) {
-		return iUsuarioDAO.findById(usuario.getIdUsuario());
+	public Usuario buscarUsuario(Long idUsuario) {
+		return iUsuarioDAO.findById(idUsuario).get();
 	}
 
 	@Override
@@ -40,6 +45,15 @@ public class UsuarioServiceImp implements IUsuarioService {
 	@Override
 	public Optional<Usuario> buscarUsuarioPorUser() {
 		return iUsuarioDAO.findByUser(usuario.getUser());
+	}
+
+
+
+	@Override
+	public void actualizarUsuario() {
+		Usuario usu = new Usuario();
+		iUsuarioDAO.save(usu);
+		iUsuarioDAO.delete(usu);
 	}
 
 }

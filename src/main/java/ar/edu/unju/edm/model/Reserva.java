@@ -38,13 +38,13 @@ public class Reserva implements Serializable{
 	@JoinColumn(name = "idHabitacion")
 	private Habitacion habitacion;
 	
-	private boolean desayuno;
+	private String desayuno;
 	
 	public Reserva() {
 		
 	}
 	
-	public Reserva(Long idReserva, LocalDate fecha, Usuario usuario, Habitacion habitacion, boolean desayuno) {
+	public Reserva(Long idReserva, LocalDate fecha, Usuario usuario, Habitacion habitacion, String desayuno) {
 		super();
 		this.idReserva = idReserva;
 		this.fecha = fecha;
@@ -85,11 +85,11 @@ public class Reserva implements Serializable{
 		this.habitacion = habitacion;
 	}
 
-	public boolean isDesayuno() {
+	public String isDesayuno() {
 		return desayuno;
 	}
 
-	public void setDesayuno(boolean desayuno) {
+	public void setDesayuno(String desayuno) {
 		this.desayuno = desayuno;
 	}
 	

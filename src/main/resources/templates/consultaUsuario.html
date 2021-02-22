@@ -17,17 +17,18 @@
 	
 	<div th:insert="layout/header :: header"></div>
 	
-	<div class="form-group">
-		<form method="post"class="form-group" id="formBuscarUsuario">
+		<form th:object="${user}" th:action="${consultaUsuario}" method="post" class="form-group" id="consultaUsu">
 			<br>
-			<label for="buscarUsuario" class="form-group col-md-12">Buscar usuario</label>
-			<input id="buscarUsuario" type="text"  class="form-control"><br>
-			<label for="enviar" class="btn-light btn-outline-success"></label><input id="enviar" type="submit" value="Buscar">
+			<label for="user" class="form-group col-md-12">Buscar usuario</label>
+			<input id="user" type="text" th:field="${user}"  class="form-control"><br>
 		</form>
-		<form action="Admin" class="form-group">
-				<input type="submit" class="btn-light btn-outline-success" value="Volver">
+		
+		<form action="Admin">
+			<label for="enviar"></label>
+			<input id="enviar" type="submit" value="Buscar">
+			<input type="submit" value="Volver">
 		</form>
-	</div>
+
 	
 	<div th:insert="layout/footer :: footer"></div>
 	

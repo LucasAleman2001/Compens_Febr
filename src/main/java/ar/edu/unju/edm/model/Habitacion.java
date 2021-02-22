@@ -34,7 +34,7 @@ public class Habitacion implements Serializable{
 	@Column
 	private double costo;
 	@Column
-	private boolean disponibilidad;
+	private String disponibilidad;
 	@Column
 	private String tipoHab;
 	
@@ -43,7 +43,7 @@ public class Habitacion implements Serializable{
 	}
 
 	public Habitacion(Long idHab, String nombreHab, int numeroHab, String detallesHab, double costo,
-			boolean disponibilidad, String tipoHab) {
+			String disponibilidad, String tipoHab) {
 		super();
 		this.idHab = idHab;
 		this.nombreHab = nombreHab;
@@ -94,11 +94,11 @@ public class Habitacion implements Serializable{
 		this.costo = costo;
 	}
 
-	public boolean isDisponibilidad() {
+	public String isDisponibilidad() {
 		return disponibilidad;
 	}
 
-	public void setDisponibilidad(boolean disponibilidad) {
+	public void setDisponibilidad(String disponibilidad) {
 		this.disponibilidad = disponibilidad;
 	}
 
