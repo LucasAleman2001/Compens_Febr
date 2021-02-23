@@ -19,15 +19,11 @@
 	<br>
 	<form id="nuevaHab" th:object="${nuevaHab}" th:action="${nuevaHabitacion}" method="post">
 		<div class="form-row">
-			<div class="form-group col-md-4">
-		    <label for="idHab">Id de Habitacion</label>
-		    <input type="number" class="form-control" id="idHab" th:field="*{idHab}">
-		    </div>
-		    <div class="form-group col-md-4">
+		    <div class="form-group col-md-6">
 		    <label for="nombreHab">Nombre de la Habitacion</label>
 		    <input type="text" class="form-control" id="nombreHab" th:field="*{nombreHab}">
 		    </div>
-			<div class="form-group col-md-4">
+			<div class="form-group col-md-6">
 		    <label for="numeroHab">Numero de la Habitacion</label>
 		    <input type="number" class="form-control" id="numeroHab" th:field="*{numeroHab}">
 		    </div>
@@ -39,22 +35,28 @@
 		    </div>
 		</div>
 		<div class="form-row">
-		    <div class="form-group col-md-6">
+		    <div class="form-group col-md-4">
 		    	<label for="costo">Costo $</label>
-		    	<p>$</p><input type="number" class="form-control" id="costo" th:field="*{costo}">
+		    	<input type="number" class="form-control" id="costo" th:field="*{costo}">
 		    </div>
-			<div class="form-group col-md-6">
+		    <div class="form-group col-md-4">
+		    	<label for="disponibilidad">Disponibilidad</label>
+		    	<input type="text" class="form-control" id="disponibilidad" placeholder="Si/No" th:field="*{disponibilidad}">
+		    </div>
+			<div class="form-group col-md-4">
 		    	<label for="tipoHab">Tipo</label>
-		    	<input type="text" class="form-control" id="tipoHab" placeholder="Simple o Doble" th:field="*{tipoHab}">
+		    	<input type="text" class="form-control" id="tipoHab" placeholder="Simple/Doble" th:field="*{tipoHab}">
 		    </div>
 		</div>
+		
+		<div>
+			<button type="submit" value="Agregar">Agregar</button>
+		</div>
+		
 	</form>
 	
 	<form action="Admin">
 		<input type="submit" value="Volver">
-		<div>
-			<button type="submit" value="Agregar">Agregar</button>
-		</div>
 	</form>
 
 	<div th:insert="layout/footer :: footer"></div>

@@ -2,14 +2,16 @@ package ar.edu.unju.edm.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -24,33 +26,34 @@ public class Reserva implements Serializable{
 	private static final long serialVersionUID = 1L;
 	 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
+	@GenericGenerator(name="native", strategy="native")
 	private Long idReserva;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private String desayuno;
+
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fecha;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idHabitacion")
 	private Habitacion habitacion;
 	
-	private String desayuno;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	public Reserva() {
 		
 	}
-	
-	public Reserva(Long idReserva, LocalDate fecha, Usuario usuario, Habitacion habitacion, String desayuno) {
+
+	public Reserva(Long idReserva, String desayuno, LocalDate fecha, Habitacion habitacion, Usuario usuario) {
 		super();
 		this.idReserva = idReserva;
-		this.fecha = fecha;
-		this.usuario = usuario;
-		this.habitacion = habitacion;
 		this.desayuno = desayuno;
+		this.fecha = fecha;
+		this.habitacion = habitacion;
+		this.usuario = usuario;
 	}
 
 	public Long getIdReserva() {
@@ -61,20 +64,20 @@ public class Reserva implements Serializable{
 		this.idReserva = idReserva;
 	}
 
+	public String getDesayuno() {
+		return desayuno;
+	}
+
+	public void setDesayuno(String desayuno) {
+		this.desayuno = desayuno;
+	}
+
 	public LocalDate getFecha() {
 		return fecha;
 	}
 
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public Habitacion getHabitacion() {
@@ -85,12 +88,12 @@ public class Reserva implements Serializable{
 		this.habitacion = habitacion;
 	}
 
-	public String isDesayuno() {
-		return desayuno;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setDesayuno(String desayuno) {
-		this.desayuno = desayuno;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-	
+
 }

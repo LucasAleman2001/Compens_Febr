@@ -16,73 +16,54 @@
 	</header>
 	
 	<div th:insert="layout/headerCliente :: headerCliente"></div>
+	
+	<p th:text="'Bienvenido, ' + ${nombre} + '(' + ${idUsuario} + ')'"></p>
+	
 	<br>
 		<h3>Lista de Habitaciones</h3><br>
 			<div>
 				<table class="table">
 				    <tr>
-				      <th scope="col">Id de Habitacion</th>
+				      <th scope="col">Numero de Habitacion</th>
 				      <th scope="col">Nombre de Habitacion</th>
 				      <th scope="col">Detalles</th>
 				      <th scope="col">Disponibilidad</th>
-				      <th scope="col">Precio</th>
+				      <th scope="col">Costo</th>
+				      <th scope="col">Tipo</th>
 				    </tr>
-					<tr th:each="reserva : ${reservas}">
-						<td th:text="${reserva.idHab}"></td>
-						<td th:text="${reserva.nombreHab}"></td>
-						<td th:text="${reserva.detalles}"></td>
-						<td th:text="${reserva.disponibilidad}"></td>
-						<td th:text="${reserva.precio}"></td>
-					</tr>
-					<tr th:each="reserva : ${reservas}">
-						<td th:text="${reserva.idHab}"></td>
-						<td th:text="${reserva.nombreHab}"></td>
-						<td th:text="${reserva.detalles}"></td>
-						<td th:text="${reserva.disponibilidad}"></td>
-						<td th:text="${reserva.precio}"></td>
-					</tr>
-					<tr th:each="reserva : ${reservas}">
-						<td th:text="${reserva.idHab}"></td>
-						<td th:text="${reserva.nombreHab}"></td>
-						<td th:text="${reserva.detalles}"></td>
-						<td th:text="${reserva.disponibilidad}"></td>
-						<td th:text="${reserva.precio}"></td>
-					</tr>
-					<tr th:each="reserva : ${reservas}">
-						<td th:text="${reserva.idHab}"></td>
-						<td th:text="${reserva.nombreHab}"></td>
-						<td th:text="${reserva.detalles}"></td>
-						<td th:text="${reserva.disponibilidad}"></td>
-						<td th:text="${reserva.precio}"></td>
+					<tr th:each="habitacion : ${habitaciones}">
+						<td th:text="${habitacion.idHab}"></td>
+						<td th:text="${habitacion.nombreHab}"></td>
+						<td th:text="${habitacion.detallesHab}"></td>
+						<td th:text="${habitacion.disponibilidad}"></td>
+						<td th:text="${habitacion.costo}"></td>
+						<td th:text="${habitacion.tipoHab}"></td>
 					</tr>
 				</table>
+			</div>
 				<br>
-				
 				<form id="nuevaReserva" th:object="${nuevaReser}" th:action="${reservar}" method="post">
 					<div class="form-row">
-			    		<div class="form-group col-md-4">
-			    			<div class="form-group" >
-								<label for="idHab">Id de habitacion a elegir</label>
-								<input type="number" class="form-control" id="idHab" th:field="*{idHab}"></input>
-							</div>
-							<div class="form-group">
-								<label for="desayuno">Desayuno</label>
-								<input type="text" class="form-control" id="desayuno" placeholder="Si o No" th:field="*{desayuno}"></input>
-							</div>
-						</div>
-						<div class="form-group col-md-4">
-							<label for="fecha">Fecha</label><br>
-							<input type="date" name="fecha" id="fecha" th:field="*{fecha}">
+						<div class="form-group col-md-6">
+							<label for="desayuno">Desayuno</label>
+							<input type="text" id="desayuno" class="form-control" placeholder="Si/No" th:field="*{desayuno}"></input>
 						</div>
 					</div>
+					<div class="form-group col-md-6">
+						<label>Habitacion</label> <br> 
+						<select th:field="*{habitacion.idHab}" class="form-select form-select-lg mb-3">
+							<option th:each="habitacion : ${habitaciones}" th:value="${habitacion.idHab}" th:text="${habitacion.nombreHab}"></option>
+						</select>
+					</div>
+						<div>
+							<button type="submit" value="Guardar">Reservar</button>					
+						</div>
 				</form>
-				<br><br><br>
-			</div>
+
 			
 			<form action="Cliente">
-			<button type="submit" value="Reservar"></button>
-			<input type="submit" value="Volver">
-		</form>
+				<input type="submit" value="Volver">
+			</form>
 						
 	<div th:insert="layout/footer :: footer"></div>
 	

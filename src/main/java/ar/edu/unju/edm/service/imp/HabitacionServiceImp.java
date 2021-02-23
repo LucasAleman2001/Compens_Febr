@@ -1,7 +1,6 @@
 package ar.edu.unju.edm.service.imp;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,16 +27,6 @@ public class HabitacionServiceImp implements IHabitacionService {
 	@Override
 	public List<Habitacion> listarHabitaciones() {
 		return (List<Habitacion>) iHabitacionDAO.findAll();
-	}
-
-	@Override
-	public Optional<Habitacion> buscarHabitacion() {
-		return iHabitacionDAO.findById(habitacion.getIdHab());
-	}
-
-	@Override
-	public Habitacion buscarPorDisponibilidad(boolean disponibilidad) {
-		return iHabitacionDAO.findByDisponibilidad(disponibilidad);
 	}
 
 }

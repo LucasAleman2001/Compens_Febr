@@ -2,7 +2,6 @@ package ar.edu.unju.edm.service.imp;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,28 +37,13 @@ public class ReservaServiceImp implements IReservaService {
 	}
 
 	@Override
-	public Optional<Reserva> buscarReservaPorFecha(LocalDate fecha) {
-		return iReservaDAO.findByFecha(reserva.getFecha());
+	public Iterable<Reserva> buscarReservaPorFecha(LocalDate fechaReserva) {
+		return iReservaDAO.findByFecha(fechaReserva);
 	}
 
 	@Override
-	public Reserva buscarReservaPorUsuario(Usuario usuario) {
+	public Iterable<Reserva> buscarReservaPorUsuario(Usuario usuario) {
 		return iReservaDAO.findByUsuario(usuario);
-	}
-
-	@Override
-	public void reservarHabitacion(Reserva reserva) {
-		iReservaDAO.findById(reserva.getIdReserva()).get().setUsuario(reserva.getUsuario());
-		iReservaDAO.findById(reserva.getIdReserva()).get().setHabitacion(reserva.getHabitacion());
-		iReservaDAO.findById(reserva.getIdReserva()).get().setDesayuno(reserva.isDesayuno());
-		iReservaDAO.findById(reserva.getIdReserva()).get().setFecha(reserva.getFecha());
-	}
-	
-	@Override
-	public void modificarReserva() {
-		Reserva cambio = new Reserva();
-		iReservaDAO.save(cambio);
-		iReservaDAO.delete(cambio);
 	}
 
 }

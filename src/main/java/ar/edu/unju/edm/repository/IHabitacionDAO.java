@@ -6,5 +6,5 @@ import ar.edu.unju.edm.model.Habitacion;
 
 @Repository
 public interface IHabitacionDAO extends CrudRepository<Habitacion,Long>{
-	public Habitacion findByDisponibilidad(boolean disponibilidad);
+	
 }

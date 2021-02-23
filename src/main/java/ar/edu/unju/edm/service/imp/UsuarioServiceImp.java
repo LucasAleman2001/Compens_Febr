@@ -47,8 +47,6 @@ public class UsuarioServiceImp implements IUsuarioService {
 		return iUsuarioDAO.findByUser(usuario.getUser());
 	}
 
-
-
 	@Override
 	public void actualizarUsuario() {
 		Usuario usu = new Usuario();

@@ -20,16 +20,12 @@
 	<table class="table">
 		    <tr>
 		      <th scope="col">Id de Reserva</th>
-		      <th scope="col">Usuario</th>
 		      <th scope="col">Habitacion</th>
-		      <th scope="col">Fecha</th>
 		      <th scope="col">Desayuno</th>
 		    </tr>
 		    <tr th:each="reserva : ${reservas}">
-		      <td th:text="${reserva.id}"></td>
-		      <td th:text="${reserva.user}"></td>
-		      <td th:text="${reserva.habitacion}"></td>
-		      <td th:text="${reserva.fecha}"></td>
+		      <td th:text="${reserva.idReserva}"></td>
+		      <td th:text="${habitacion.idHab}"></td>
 		      <td th:text="${reserva.desayuno}"></td>
 		    </tr>
 		</table>

@@ -17,16 +17,22 @@ public class Main {
 	IUsuarioService iUsuarioService;
 	@Autowired
 	IHabitacionService iHabitacionService;
+	@Autowired
+	Usuario usuario;
+	@Autowired
+	Habitacion habitacion;
+
 	
 	@GetMapping({"/","/login","/home","/login?error=true"})
 	public String login(Model model) {
 		
-		//iHabitacionService.guardarHabitacion(new Habitacion((long)1, "Primavera", 12, "Especial para pasar tardes trabajando",2400.0, "no", "simple"));
-		//iHabitacionService.guardarHabitacion(new Habitacion((long)2, "Verano", 23, "Si queres pasar un verano excelente",3400.0, "si", "doble"));
-		//iHabitacionService.guardarHabitacion(new Habitacion((long)3, "Invierno", 34, "Con calefaccion para estar calentitos",3600.0, "si", "doble"));
-		//iHabitacionService.guardarHabitacion(new Habitacion((long)4, "Otono", 45, "Bienvenido a Otono-room",2600.0, "no", "simple"));
-		//iUsuarioService.guardarUsuario(new Usuario (43526613,"luks","luks","Lucas","Aleman","Admin"));
-		//iUsuarioService.guardarUsuario(new Usuario(43526614,"pedro","1234","Pedro","Torres","Cliente"));
+		iHabitacionService.guardarHabitacion(new Habitacion((long)1, "Primavera", 12, "Especial para pasar tardes trabajando",2400.0, "no", "simple"));
+		iHabitacionService.guardarHabitacion(new Habitacion((long)2, "Verano", 23, "Si queres pasar un verano excelente",3400.0, "si", "doble"));
+		iHabitacionService.guardarHabitacion(new Habitacion((long)3, "Invierno", 34, "Con calefaccion para estar calentitos",3600.0, "si", "doble"));
+		iHabitacionService.guardarHabitacion(new Habitacion((long)4, "Otono", 45, "Bienvenido a Otono-room",2600.0, "no", "simple"));
+		//iUsuarioService.guardarUsuario(new Usuario ((long)1,43526613,"luks","luks","Lucas","Aleman","Admin"));
+		//iUsuarioService.guardarUsuario(new Usuario((long)2,43526614,"pedro","1234","Pedro","Torres","Cliente"));
+		
 		
 		return "login";
 	}

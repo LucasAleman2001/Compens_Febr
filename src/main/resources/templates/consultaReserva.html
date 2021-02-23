@@ -19,25 +19,17 @@
 	<br>
 	    <div class="container">
 	    	<table class="table">
-				<tr>
-					<th>Nombre de Habitaciones</th>
-					<th>Numero de Habitaciones</th>
-					<th>Tipo</th>
-					<th>Detalles</th>
-					<th>Precio</th>
-					<th>Fecha</th>
-					<th>Desayuno</th>
-				</tr>
-				<tr th:each="reserva : ${reservas}">
-					<td th:text="${reserva.nombreHab}"></td>
-					<td th:text="${reserva.numeroHab}"></td>
-					<td th:text="${reserva.tipoHab}"></td>
-					<td th:text="${reserva.detalles}"></td>
-					<td th:text="${reserva.precio}"></td>
-					<td th:text="${reserva.fecha}"></td>
-					<td th:text="${reserva.desayuno}"></td>
-				</tr>
-			</table>
+		    <tr>
+		      <th scope="col">Id de Reserva</th>
+		      <th scope="col">Habitacion</th>
+		      <th scope="col">Desayuno</th>
+		    </tr>
+		    <tr th:each="reserva : ${reservas}">
+		      <td th:text="${reserva.idReserva}"></td>
+		      <td th:text="${habitacion.idHab}"></td>
+		      <td th:text="${reserva.desayuno}"></td>
+		    </tr>
+		</table>
 	    </div>
 	    
 	    <form action="Cliente" class="form-group">

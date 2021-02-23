@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.edu.unju.edm.model.Reserva;
 import ar.edu.unju.edm.model.Usuario;
@@ -23,7 +24,12 @@ public class UsuarioController {
 	IReservaService iReservaService;
 	
 	@GetMapping("/Cliente")
-	public String Cliente() {
+	public String Cliente(Model model) {
+		return "cliente";
+	}
+	
+	@PostMapping("/Cliente")
+	public String ClienteP(Model model) {
 		return "cliente";
 	}
 	
@@ -53,15 +59,15 @@ public class UsuarioController {
 	
 	
 	@GetMapping("/nuevoUsuario")
-	public String agregarUsuario(Model model) {
-		model.addAttribute("nuevoUsu", usuario);
+	public String nuevoUsuario(Model model) {
+		model.addAttribute("nuevoUsu", new Usuario());
 		return "nuevoUsuario";
 	}
 	
 	@PostMapping("/nuevoUsuario")
-	public String agregarUsuarioPost(@ModelAttribute("nuevoUsu") Usuario usuario, Model model) {
+	public String nuevoUsuarioPost(@ModelAttribute("nuevoUsu") Usuario usuario, Model model) {
 		iUsuarioService.guardarUsuario(usuario);
-		return "nuevoUsuario";
+		return "admin";
 	}
 	
 }

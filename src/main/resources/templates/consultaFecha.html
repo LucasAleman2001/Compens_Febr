@@ -21,11 +21,14 @@
 		
 		<form th:object="${fecha}" th:action="${consultaFecha}" method="post" class="form-group" id="consultaFec"> <br>
 			<label for="fecha">Fecha a buscar</label>
-			<input id="fecha" type="datetime" class="form-control">
+			<input id="fecha" type="number" th:field="${fecha}" placeholder="fecha"  class="form-control">
+			<div>
+				<label></label><input id="enviar" type="submit" value="Buscar">
+			</div>
 		</form>
 		
 		<form action="Admin">
-			<label></label><input id="enviar" type="submit" value="Buscar">
+
 			<input type="submit" value="Volver">
 		</form>
 		

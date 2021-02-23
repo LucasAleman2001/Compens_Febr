@@ -19,14 +19,14 @@ public class HabitacionController {
 	IHabitacionService iHabitacionService;
 	
 	@GetMapping("/nuevaHabitacion")
-	public String AgregarHabitacion(Model model) {
+	public String nuevaHabitacion(Model model) {
 		model.addAttribute("nuevaHab",new Habitacion());
 		return "nuevaHabitacion";
 	}
 	@PostMapping("/nuevaHabitacion")
-	public String AgregarHabitacionPost(@ModelAttribute("nuevaHab") Habitacion habitacion, Model model) {
+	public String nuevaHabitacionPost(@ModelAttribute("nuevaHab") Habitacion habitacion, Model model) {
 		iHabitacionService.guardarHabitacion(habitacion);
-		return "nuevoUsuario";
+		return "admin";
 	}
 	
 }

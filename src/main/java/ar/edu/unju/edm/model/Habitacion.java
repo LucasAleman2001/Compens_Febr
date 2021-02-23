@@ -94,7 +94,7 @@ public class Habitacion implements Serializable{
 		this.costo = costo;
 	}
 
-	public String isDisponibilidad() {
+	public String getDisponibilidad() {
 		return disponibilidad;
 	}
 
@@ -102,12 +102,12 @@ public class Habitacion implements Serializable{
 		this.disponibilidad = disponibilidad;
 	}
 
-	public String getTipo() {
+	public String getTipoHab() {
 		return tipoHab;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipoHab = tipo;
+	public void setTipoHab(String tipoHab) {
+		this.tipoHab = tipoHab;
 	}
 
 }

@@ -53,16 +53,6 @@ public class Usuario implements Serializable{
 		this.tipo = tipo;
 	}
 
-	public Usuario(int dni, String user, String password, String nombre, String apellido, String tipo) {
-		super();
-		this.dni = dni;
-		this.user = user;
-		this.password = password;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.tipo = tipo;
-	}
-
 	public Long getIdUsuario() {
 		return idUsuario;
 	}

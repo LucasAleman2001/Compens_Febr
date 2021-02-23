@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import ar.edu.unju.edm.model.Reserva;
+import ar.edu.unju.edm.service.IHabitacionService;
 import ar.edu.unju.edm.service.IReservaService;
+import ar.edu.unju.edm.service.IUsuarioService;
 
 @Controller
 public class ReservaController {
@@ -19,6 +21,9 @@ public class ReservaController {
 	Reserva reserva;
 	@Autowired
 	IReservaService iReservaService;
+	@Autowired
+	IHabitacionService iHabitacionService;
+	IUsuarioService iUsuarioService;
 
 	@GetMapping("/consultaFecha")
 	public String BuscarFecha(Model model) {
@@ -28,23 +33,23 @@ public class ReservaController {
 	}
 	
 	@PostMapping("/consultaFecha")
-	public String BuscarFechaPost(@ModelAttribute("fecha") Reserva fecha, Model model) {
-		LocalDate busq = LocalDate.parse("fecha");
-		System.out.println("Fecha buscada: " + busq);
+	public String BuscarFechaPost(@ModelAttribute("fecha") LocalDate fecha, Model model) {
+		LocalDate busq = fecha;
+		System.out.println("Fecha a buscar: " + busq);
 		return MostrarFecha(busq, model);
 	}
 	
 	@GetMapping("/fechaEncontrada")
-	public String MostrarFecha(LocalDate fecha, Model model) {
-		model.addAttribute("reservas",iReservaService.buscarReservaPorFecha(fecha));
-		System.out.println("Fecha buscada: "+fecha);
-		return "fechaBuscada";
+	public String MostrarFecha(LocalDate busq, Model model) {
+		model.addAttribute("reservas",iReservaService.buscarReservaPorFecha(busq));
+		System.out.println("Fecha buscada: "+busq);
+		return "fechaEncontrada";
 	}
 	
 	@GetMapping("/listaReservas")
 	public String listaReservas(Model model) {
 		model.addAttribute("reservas",iReservaService.listarReservas());
-		return "listaReservas";
+		return "reservar";
 	}
 	
 	
@@ -54,18 +59,16 @@ public class ReservaController {
 	}
 	
 	
-	
 	@GetMapping("/reservar")
-	public String ReservaHabitacion(Model model) {
-		model.addAttribute("reservas", iReservaService.listarReservas());
+	public String reservarHabitacion(Model model) {
+		model.addAttribute("habitaciones", iHabitacionService.listarHabitaciones());
 		model.addAttribute("nuevaReser", new Reserva());
-		return "consultaReserva";
+		return "reservar";
 	}
 
 	@PostMapping("/reservar")
-	public String AgregarReserva(@ModelAttribute("reservaDelForm") Reserva reserva, Model model) {
-		iReservaService.reservarHabitacion(reserva);
-		iReservaService.modificarReserva();
+	public String reservarHabitacionPost(@ModelAttribute("nuevaReser") Reserva reserva, Model model) {
+		iReservaService.guardarReserva(reserva);
 		return "reservar";
 	}
 	
