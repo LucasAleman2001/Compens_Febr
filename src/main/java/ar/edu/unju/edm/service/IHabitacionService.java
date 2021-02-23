@@ -9,5 +9,6 @@ public interface IHabitacionService {
 	
 	public void guardarHabitacion(Habitacion habitacion);
 	public List<Habitacion> listarHabitaciones();
+	public Iterable<Habitacion> buscarReservaPorDisponibilidad(String disponibilidad);
 
 }

@@ -41,11 +41,17 @@
 		    </div>
 		    <div class="form-group col-md-4">
 		    	<label for="disponibilidad">Disponibilidad</label>
-		    	<input type="text" class="form-control" id="disponibilidad" placeholder="Si/No" th:field="*{disponibilidad}">
+		    	<select th:field="*{disponibilidad}" class="form-select">
+					<option th:value="'Si'" th:text="Si"></option>
+					<option th:value="'No'" th:text="No"></option>
+				</select>
 		    </div>
 			<div class="form-group col-md-4">
 		    	<label for="tipoHab">Tipo</label>
-		    	<input type="text" class="form-control" id="tipoHab" placeholder="Simple/Doble" th:field="*{tipoHab}">
+		    	<select th:field="*{tipoHab}" class="form-select">
+					<option th:value="'Simple'" th:text="Simple"></option>
+					<option th:value="'Doble'" th:text="Doble"></option>
+				</select>
 		    </div>
 		</div>
 		

@@ -14,19 +14,17 @@
     		<h1>Hotel Dovago</h1>
   		</div>
 	</header>
-	
-	<div th:insert="layout/header :: header"></div>
 	<br>
 
 	<div class="form-group">
-		<form action="listarReservas" class="form-group">
+		<form action="listaReservas" class="form-group">
 			<input type="submit" value="Listar Reservas">
 		</form>
-		<form action="consultaUsuario" class="form-group" id="consultaUsu">
-			<input type="submit" value="Mostrar Reservas por Usuario">
+		<form action="listaUsuarios" class="form-group">
+			<input type="submit" value="Listar Usuarios">
 		</form>
-		<form action="consultaFecha" class="form-group" id="consultaFec">
-			<input type="submit" value="Mostrar Reservas por Fecha">
+		<form action="consultaUsuario" class="form-group" id="consultaUsu">
+			<input type="submit" value="Mostrar Reservas por Disponibilidad">
 		</form>
 		<form action="nuevaHabitacion" class="form-group" id="nuevaHab">
 			<input type="submit" value="Agregar Habitacion">

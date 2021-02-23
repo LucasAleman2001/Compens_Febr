@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.edm.model.Habitacion;
 import ar.edu.unju.edm.model.Reserva;
 import ar.edu.unju.edm.model.Usuario;
 import ar.edu.unju.edm.repository.IReservaDAO;
@@ -37,13 +38,8 @@ public class ReservaServiceImp implements IReservaService {
 	}
 
 	@Override
-	public Iterable<Reserva> buscarReservaPorFecha(LocalDate fechaReserva) {
-		return iReservaDAO.findByFecha(fechaReserva);
-	}
-
-	@Override
-	public Iterable<Reserva> buscarReservaPorUsuario(Usuario usuario) {
-		return iReservaDAO.findByUsuario(usuario);
+	public Iterable<Habitacion> buscarReservaPorHabitacion(Habitacion habitacion) {
+		return iReservaDAO.findByHabitacion(habitacion);
 	}
 
 }

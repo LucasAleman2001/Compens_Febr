@@ -17,22 +17,23 @@
 	
 	<div th:insert="layout/header :: header"></div>
 	
-	<div class="form-group">
-		
-		<form th:object="${fecha}" th:action="${consultaFecha}" method="post" class="form-group" id="consultaFec"> <br>
-			<label for="fecha">Fecha a buscar</label>
-			<input id="fecha" type="number" th:field="${fecha}" placeholder="fecha"  class="form-control">
+		<form th:object="${nuevaRes}" th:action="${consultaFecha}" method="post" class="form-group" id="consultaUsu">
+			<br>
+			<label for="nombreHab" class="form-group col-md-12">Buscar Habitacion</label>
+				<select id="nombreHab" th:field="*{habitacion}" class="form-select form-select-lg mb-3">
+					<option th:each="reserva : ${reservas}" th:value="${habitacion}" th:text="${habitacion.nombreHab}"></option>
+				</select>
 			<div>
-				<label></label><input id="enviar" type="submit" value="Buscar">
+				<label for="enviar"></label>
+				<input id="enviar" type="submit" value="Buscar">
 			</div>
 		</form>
 		
 		<form action="Admin">
-
+			
 			<input type="submit" value="Volver">
 		</form>
-		
-	</div>
+
 	
 	<div th:insert="layout/footer :: footer"></div>
 	

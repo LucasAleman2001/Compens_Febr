@@ -29,4 +29,9 @@ public class HabitacionServiceImp implements IHabitacionService {
 		return (List<Habitacion>) iHabitacionDAO.findAll();
 	}
 
+	@Override
+	public Iterable<Habitacion> buscarReservaPorDisponibilidad(String disponibilidad) {
+		return iHabitacionDAO.findByDisponibilidad(disponibilidad);
+	}
+
 }

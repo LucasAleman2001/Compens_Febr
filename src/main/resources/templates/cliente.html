@@ -15,12 +15,14 @@
   		</div>
 	</header>
 	
-	<div th:insert="layout/headerCliente :: headerCliente"></div>
 	<br>
 
 	<div class="form-group">
 		<form action="reservar" class="form-group">
 			<input type="submit" value="Reservar habitacion">
+		</form>
+		<form action="consultaReserva" class="form-group">
+			<input type="submit" value="Ver reservas">
 		</form>
 		<form action="login" class="form-group" id="formCerrarSesion">
 			<input type="submit" value="Cerrar Sesion">

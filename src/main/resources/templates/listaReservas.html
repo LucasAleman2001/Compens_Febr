@@ -25,7 +25,7 @@
 		    </tr>
 		    <tr th:each="reserva : ${reservas}">
 		      <td th:text="${reserva.idReserva}"></td>
-		      <td th:text="${habitacion.idHab}"></td>
+		      <td th:text="${reserva.habitacion.nombreHab}"></td>
 		      <td th:text="${reserva.desayuno}"></td>
 		    </tr>
 		</table>

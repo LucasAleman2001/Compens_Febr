@@ -19,26 +19,22 @@
 	<br>
 	    <div class="container">
 	    	<table class="table">
-				<tr>
-					<th>Codigo de Reserva</th>
-					<th>Usuario</th>
-					<th>Habitacion</th>
-					<th>Fecha</th>
-					<th>Desayuno</th>
-				</tr>
-				<tr th:each="reserva : ${reservas}">
-					<td th:text="${reserva.id}"></td>
-					<td th:text="${reserva.user}"></td>
-					<td th:text="${reserva.nombreHab}"></td>
-					<td th:text="${reserva.fecha}"></td>
-					<td th:text="${reserva.desayuno}"></td>
-				</tr>
-			</table>
+				    <tr>
+				      <th scope="col">Numero de Reserva</th>
+				      <th scope="col">Nombre de Habitacion</th>
+				      <th scope="col">Desayuno</th>
+				    </tr>
+					<tr th:each="reserva : ${reservas}">
+						<td th:text="${reserva.idReserva}"></td>
+						<td th:text="${reserva.habitacion}"></td>
+						<td th:text="${reserva.desayuno}"></td>
+					</tr>
+				</table>
 	    </div>
 	    
-	<form action="Admin">
-		<input type="submit" value="Volver">
-	</form>
+	    <form action="Admin">
+			<input type="submit" value="Volver">
+		</form>
 		
 	<div th:insert="layout/footer :: footer"></div>
 		

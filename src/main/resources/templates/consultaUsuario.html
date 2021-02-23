@@ -17,10 +17,13 @@
 	
 	<div th:insert="layout/header :: header"></div>
 	
-		<form th:object="${user}" th:action="${consultaUsuario}" method="post" class="form-group" id="consultaUsu">
+		<form th:object="${nuevaHab}" th:action="${consultaUsuario}" method="post" class="form-group" id="consultaUsu">
 			<br>
-			<label for="user" class="form-group col-md-12">Buscar usuario</label>
-			<input id="user" type="text" th:field="${user}"  class="form-control"><br>
+			<label for="disponibilidad" class="form-group col-md-12">Buscar Disponibilidad</label>
+				<select th:field="*{disponibilidad}" class="form-select">
+					<option th:value="'Si'" th:text="Si"></option>
+					<option th:value="'No'" th:text="No"></option>
+				</select>
 			<div>
 				<label for="enviar"></label>
 				<input id="enviar" type="submit" value="Buscar">

@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.edu.unju.edm.model.Reserva;
 import ar.edu.unju.edm.model.Usuario;
@@ -38,26 +37,6 @@ public class UsuarioController {
 		return "admin";
 	}
 	
-	
-	@GetMapping("/consultaUsuario")
-	public String consultaUsuario(Model model) {
-		Reserva res = new Reserva();
-		model.addAttribute("user", res);
-		return "consultaUsuario";
-	}
-	
-	@PostMapping("/consultaUsuario")
-	public String buscarUsuario(@ModelAttribute("user") Reserva reser, Model model) {
-		return mostrarUsuario(reser, model);
-	}
-	
-	@GetMapping("/usuarioEncontrado")
-	public String mostrarUsuario(Reserva reser, Model model) {
-		model.addAttribute("reservas",iReservaService.buscarReservaPorUsuario(reser.getUsuario()));
-		return "usuarioEncontrado";
-	}
-	
-	
 	@GetMapping("/nuevoUsuario")
 	public String nuevoUsuario(Model model) {
 		model.addAttribute("nuevoUsu", new Usuario());
@@ -69,5 +48,12 @@ public class UsuarioController {
 		iUsuarioService.guardarUsuario(usuario);
 		return "admin";
 	}
+	
+	@GetMapping("/listaUsuarios")
+	public String listarUsuarios(Model model) {
+		model.addAttribute("nuevoUsu", iUsuarioService.listarUsuarios());
+		return "listaUsuarios";
+	}
+	
 	
 }

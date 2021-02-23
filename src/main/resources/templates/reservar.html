@@ -17,8 +17,6 @@
 	
 	<div th:insert="layout/headerCliente :: headerCliente"></div>
 	
-	<p th:text="'Bienvenido, ' + ${nombre} + '(' + ${idUsuario} + ')'"></p>
-	
 	<br>
 		<h3>Lista de Habitaciones</h3><br>
 			<div>
@@ -40,26 +38,30 @@
 						<td th:text="${habitacion.tipoHab}"></td>
 					</tr>
 				</table>
+			
 			</div>
 				<br>
 				<form id="nuevaReserva" th:object="${nuevaReser}" th:action="${reservar}" method="post">
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="desayuno">Desayuno</label>
-							<input type="text" id="desayuno" class="form-control" placeholder="Si/No" th:field="*{desayuno}"></input>
+							<select th:field="*{desayuno}" class="form-select">
+								<option th:value="'Si'" th:text="Si"></option>
+								<option th:value="'No'" th:text="No"></option>
+							</select>
 						</div>
-					</div>
-					<div class="form-group col-md-6">
+						<div class="form-group col-md-6">
 						<label>Habitacion</label> <br> 
 						<select th:field="*{habitacion.idHab}" class="form-select form-select-lg mb-3">
 							<option th:each="habitacion : ${habitaciones}" th:value="${habitacion.idHab}" th:text="${habitacion.nombreHab}"></option>
 						</select>
 					</div>
+					</div>
+					
 						<div>
 							<button type="submit" value="Guardar">Reservar</button>					
 						</div>
 				</form>
-
 			
 			<form action="Cliente">
 				<input type="submit" value="Volver">

@@ -45,7 +45,10 @@
 		    </div>
 		    <div class="form-group col-md-6">
 		    	<label for="tipo">Tipo</label>
-		    	<input type="text" class="form-control" id="tipo" placeholder="Admin o Cliente" th:field="*{tipo}">
+		    	<select th:field="*{tipo}" class="form-select">
+					<option th:value="'Admin'" th:text="Administrador"></option>
+					<option th:value="'Cliente'" th:text="Cliente"></option>
+				</select>
 		    </div>
 		</div>
 		

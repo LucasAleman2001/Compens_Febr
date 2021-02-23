@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+<link th:ref="@{/css/style.css}" rel="stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" ></link>
+<meta charset="ISO-8859-1">
+<title>Hotel Dovago</title>
+</head>
+
+<body class="container">
+	<br>
+	<header>
+		<div class="cabeza">
+    		<h1>Hotel Dovago</h1>
+  		</div>
+	</header>
+	
+	<div th:insert="layout/header :: header"></div>
+	
+	<br>
+		<h3>Lista de Usuarios</h3><br>
+			<div>
+				<table class="table">
+				    <tr>
+				      <th scope="col">ID de usuario</th>
+				      <th scope="col">User de usuario</th>
+				      <th scope="col">Nombre de usuario</th>
+				      <th scope="col">Apellido</th>
+				      <th scope="col">DNI</th>
+				      <th scope="col">Tipo</th>
+				    </tr>
+					<tr th:each="user : ${nuevoUsu}">
+						<td th:text="${user.idUsuario}"></td>
+						<td th:text="${user.user}"></td>
+						<td th:text="${user.nombre}"></td>
+						<td th:text="${user.apellido}"></td>
+						<td th:text="${user.dni}"></td>
+						<td th:text="${user.tipo}"></td>
+					</tr>
+				</table>
+			</div>
+				<br>
+							
+			<form action="Admin">
+				<input type="submit" value="Volver">
+			</form>
+						
+	<div th:insert="layout/footer :: footer"></div>
+	
+</body>
+</html>
